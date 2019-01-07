@@ -1,6 +1,5 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 import mlflow
@@ -15,7 +14,6 @@ def eval_metrics(actual, pred):
 if __name__ == "__main__":
     df = pd.read_csv("./WA_Fn-UseC_-Telco-Customer-Churn.csv")
     # print(df.head())
-    plt.bar(df['Dependents'].value_counts().index, df['Dependents'].value_counts().values)
     # print(df.corr())
     df['TotalCharges'].replace(to_replace=' ', value=np.NaN, inplace=True) # find and replace missing value with np.NaN
     df['TotalCharges'] = pd.to_numeric(df['TotalCharges']) # convert the data column to numeric dtype
